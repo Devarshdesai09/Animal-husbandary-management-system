@@ -153,20 +153,45 @@ const mongoose = require("mongoose");
 // Get all appointment history for a specific user
 
 
-router.get("/appointment/history", async (req, res) => {
+// router.get("/appointment/history", async (req, res) => {
+//   try {
+//     const { id } = req.headers; // user's ID from headers
+
+//     if (!id) {
+//       return res.status(400).json({ message: "User ID missing in headers" });
+//     }
+
+//     // ✅ Get all appointments for the user
+//     const appointments = await appoinment.find({ user_id: id })
+//       .populate("doctor_id", "name specialization email") // optional
+//       .sort({ appointment_date: -1 }); // recent first
+
+//     if (appointments.length === 0) {
+//       return res.status(404).json({ message: "No appointment history found" });
+//     }
+
+//     res.status(200).json({
+//       status: "success",
+//       appointments,
+//     });
+
+//   } catch (error) {
+//     console.error("Error fetching appointment history:", error);
+//     res.status(500).json({ error: error.message });
+//   }
+// });
+
+// GET /appointment/history/:id
+router.get("/appointment/history/:id", async (req, res) => {
   try {
-    const { id } = req.headers; // user's ID from headers
+    const { id } = req.params;
 
-    if (!id) {
-      return res.status(400).json({ message: "User ID missing in headers" });
-    }
+    const appointments = await appoinment
+      .find({ user_id: id })
+      .populate("doctor_id", "name email specialization")
+      .sort({ appointment_date: -1 });
 
-    // ✅ Get all appointments for the user
-    const appointments = await appoinment.find({ user_id: id })
-      .populate("doctor_id", "name specialization email") // optional
-      .sort({ appointment_date: -1 }); // recent first
-
-    if (appointments.length === 0) {
+    if (!appointments || appointments.length === 0) {
       return res.status(404).json({ message: "No appointment history found" });
     }
 
@@ -180,5 +205,6 @@ router.get("/appointment/history", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
 
 module.exports = router;
