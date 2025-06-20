@@ -34,7 +34,8 @@ const baseUserSchema = new mongoose.Schema({
         enum : ['farmer', 'doctor', 'admin'],
         default : 'farmer', 
         required: true
-    }
+    },
+appointments: [{ type: mongoose.Schema.Types.ObjectId, ref: "appoinment" }]
 }, { timestamps: true });
 
 const BaseUser = mongoose.model('BaseUser', baseUserSchema);

@@ -38,18 +38,20 @@ const Login = () => {
        const response = await axios.post("http://localhost:8080/api/v1/sign-in",Values)
        
       const user = response.data.user || {};
-       const { id, role, token } = response.data;
+       const { id, role, token ,email} = response.data;
       
        dispatch(authActions.login());
-       dispatch(authActions.setUser({ id: user._id, role: user.role }));
+       dispatch(authActions.setUser({ id: user._id, role: user.role,  email : user.email }));
        
       
       // store the data in the localsotreage 
       localStorage.setItem("id",response.data.id)
       localStorage.setItem("token",response.data.token)
       localStorage.setItem("role",response.data.role)
-      // localStorage.setItem("user", JSON.stringify(response.data));
-      // console.log("Raw localStorage user:", localStorage.getItem("user"));
+      localStorage.setItem("email",response.data.email)
+
+      localStorage.setItem("user", JSON.stringify(response.data));
+      console.log("Raw localStorage user:", localStorage.getItem("user"));
 
        navigate("/")
       
@@ -61,6 +63,9 @@ const Login = () => {
                      error.message || 
                      "Login failed. Please try again.";
       alert(message);}
+
+      
+
 
 
   };  return (

@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt")
 const sendEmail = require("../emailservices/emailser")
 router.post("/sign-up",async(req,res)=>{
     try {
-        const {firstname , lastname , email, password , phoneNumber , age , gender , address , role  } = req.body;
+        const {firstname , lastname , email, password , phoneNumber , age , gender , address ,Appointment, role  } = req.body;
 
       // check email already exist ?
       const existingemail = await user.findOne({email:email});
@@ -31,6 +31,8 @@ router.post("/sign-up",async(req,res)=>{
             gender :gender,
             password:hassPass,
             address:address,
+            Appointment: Appointment || [], // Default to empty array if not provided
+            role: role || 'farmer', // Default to 'farmer' if role is
         });
 
         await newUser.save();
@@ -53,6 +55,7 @@ router.post("/sign-up",async(req,res)=>{
 // sign-in 
 router.post("/sign-in",async(req,res)=>{
     try {
+      
         const {firstname , lastname , email, password , phoneNumber} = req.body;
 
 
@@ -72,6 +75,9 @@ router.post("/sign-in",async(req,res)=>{
                 const authClaims = [
                     {name:existingUser.username},
                     {role:existingUser.role},
+                    {email:existingUser.email},
+                    {lastname:existingUser.lastname},
+                    {firstname:existingUser.firstname},
                 ]
                 const token = jwt.sign({authClaims}, "bookstore123",{expiresIn:"30d"})
                 res.status(200).json(
@@ -79,6 +85,9 @@ router.post("/sign-in",async(req,res)=>{
                     id : existingUser._id , 
                     role : existingUser.role , 
                     token:token ,
+                    email:existingUser.email,
+                    firstname:existingUser.firstname,
+                    lastname:existingUser.lastname,
                 })
             }
             else{
@@ -112,5 +121,17 @@ router.get("/get-user-information", async (req, res) => {
       res.status(500).json({ message: "Internal server error" });
     }
   });
+
+  // Route: GET /api/user/:id
+router.get('/user/:id', async (req, res) => {
+  try {
+    const User = await user.findById(req.params.id).select("firstname lastname email role");
+    res.json(User);
+  } catch (err) {
+    res.status(500).json({ error: "User not found" });
+  }
+});
+
+  
 
 module.exports = router;
