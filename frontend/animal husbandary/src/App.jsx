@@ -8,6 +8,7 @@ import SignUp from "./pages/SignUp";
 import Appointment from "./pages/Appointment";
 import Profile from "./pages/Profile";
 import Bookappointment from "./pages/Bookappointment";
+import Docdashboard from "./components/Docdashboard"
 const App = () => {
   const dispatch = useDispatch();
 
@@ -32,7 +33,7 @@ const App = () => {
         <Route path="/appointment" element={<Appointment />}    />
         <Route path="/bookappointment" element={<Bookappointment />}    />
         <Route path="/profile" element={<Profile/>}    />
-
+        <Route path="/docdashboard" element={<Docdashboard />} />
       </Routes>
   
   );

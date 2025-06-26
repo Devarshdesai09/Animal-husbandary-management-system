@@ -1,25 +1,48 @@
-/* Base Styles */
+/* Root Color Variables */
+:root {
+  --teal: #008080;
+  --teal-dark: #005f5f;
+  --teal-light: #e6f7f7;
+  --light-bg: #f9fdfd;
+  --white: #ffffff;
+  --dark-gray: #333333;
+  --soft-gray: #888888;
+  --hover-teal: #007373;
+}
+
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Arial", sans-serif;
 }
 
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: var(--light-bg);
+  color: var(--dark-gray);
+}
+
+/* Container */
 .animal-husbandry {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  background: var(--light-bg);
 }
 
-/* Header Styles */
+/* Header */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5%;
-  background-color: #2c5f2d;
-  color: white;
+  background: var(--teal);
+  color: var(--white);
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 8px rgba(0, 128, 128, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .logo {
@@ -29,214 +52,159 @@
 }
 
 .logo img {
-  height: 50px;
+  height: 48px;
+  width: 48px;
   border-radius: 50%;
+  border: 2px solid var(--white);
+  object-fit: cover;
 }
 
 .nav ul {
   display: flex;
-  gap: 2rem;
   list-style: none;
+  gap: 1.5rem;
+  align-items: center;
 }
 
 .nav a {
-  color: white;
+  color: var(--white);
   text-decoration: none;
-  transition: color 0.3s ease;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s;
 }
 
 .nav a:hover {
-  color: #97bc62;
+  color: #d9fdfd;
+}
+
+/* Login Button Header */
+.login-button-header {
+  padding: 0.5rem 1rem;
+  background: var(--white);
+  color: var(--teal);
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.login-button-header:hover {
+  background: var(--hover-teal);
+  color: white;
+}
+
+/* Logout Button */
+.logoutbtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+.logoutbtn .logout-icon {
+  filter: brightness(0) invert(1);
+  transition: transform 0.2s;
+}
+.logoutbtn:hover .logout-icon {
+  transform: scale(1.2);
 }
 
 /* Hero Section */
-/* Hero Section Styles */
 .hero {
-  position: relative;
-  height: 70vh;
-  min-height: 500px;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('backG.jpg') center/cover no-repeat;
-  z-index: 1;
-}
-
-.hero-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  background: linear-gradient(120deg, var(--teal-light), var(--white));
+  padding: 4rem 2rem;
   text-align: center;
-  color: white;
-  z-index: 2;
-  width: 90%;
-  max-width: 800px;
-  padding: 20px;
+  position: relative;
 }
-
+.hero-content {
+  max-width: 760px;
+  margin: auto;
+}
 .hero-content h2 {
   font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: var(--teal-dark);
+  margin-bottom: 1rem;
 }
-
 .hero-content p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  color: var(--soft-gray);
   margin-bottom: 2rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
+/* CTA Button */
 .cta-button {
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-  background-color: #2c5f2d;
-  border: 2px solid #97bc62;
+  background: var(--teal);
   color: white;
+  border: none;
+  padding: 0.9rem 2rem;
   border-radius: 30px;
+  font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
-
 .cta-button:hover {
-  background-color: #97bc62;
-  border-color: #2c5f2d;
+  background: var(--hover-teal);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .hero {
-    height: 50vh;
-  }
-
-  .hero-content h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .cta-button {
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-content h2 {
-    font-size: 1.75rem;
-  }
-
-  .hero-content p {
-    font-size: 0.9rem;
-  }
-}
 /* Features Section */
 .features {
-  padding: 4rem 5%;
-  background-color: #f9f9f9;
-}
-
-.features h3 {
+  padding: 4rem 2rem;
+  background: var(--white);
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 3rem;
-  color: #2c5f2d;
 }
-
+.features h3 {
+  font-size: 2rem;
+  color: var(--teal-dark);
+  margin-bottom: 2.5rem;
+}
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
 }
-
 .feature-card {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  background: var(--light-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
 }
-
 .feature-card:hover {
   transform: translateY(-5px);
 }
-
 .feature-card img {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
+  border-radius: 12px 12px 0 0;
 }
-
 .feature-card h4 {
-  padding: 1rem;
-  color: #2c5f2d;
+  color: var(--teal-dark);
+  margin-top: 1rem;
 }
-
 .feature-card p {
-  padding: 0 1rem 1.5rem;
-  color: #666;
+  color: var(--soft-gray);
+  font-size: 0.95rem;
+  padding: 0 1rem 1rem;
 }
 
-/* Footer Styles */
+/* Footer */
 .footer {
-  margin-top: auto;
-  background-color: #2c5f2d;
+  background: var(--teal-dark);
   color: white;
   text-align: center;
   padding: 1.5rem;
+  font-size: 0.95rem;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    gap: 1rem;
+  .logo h1 {
+    font-size: 1.2rem;
   }
-
-  .nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
+  .hero-content h2 {
+    font-size: 1.8rem;
   }
-
-  .hero h2 {
-    font-size: 2rem;
-  }
-
   .features-grid {
     grid-template-columns: 1fr;
   }
-}
-
-@media (max-width: 768px) {
-  .hero {
-    height: 50vh; /* Adjusted from 60vh for better mobile display */
-  }
-}
-
-
-.logoutbtn{
-  background: transparent;
-  border: none; 
-  margin: 0%;
-  padding: 0%;
 }

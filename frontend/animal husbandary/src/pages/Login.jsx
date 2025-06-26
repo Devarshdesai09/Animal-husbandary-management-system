@@ -53,9 +53,17 @@ const Login = () => {
       localStorage.setItem("user", JSON.stringify(response.data));
       console.log("Raw localStorage user:", localStorage.getItem("user"));
 
-       navigate("/")
+      
+      
+       if (role === "farmer") {
+         navigate("/");
+       } else if (role === "doctor") {
+         navigate("/docdashboard");
+       }  
+
       
       }
+      
       
     } catch (error) {
       console.error("Full error:", error);

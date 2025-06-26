@@ -136,6 +136,7 @@ const Profile = () => {
       <div>
         <h2 className="user-name">{user.lastname}</h2>
         <p className="user-email">{user.email}</p>
+        <p className='user-email'>Role:{user.role}</p>
         
       </div>
     </div>
