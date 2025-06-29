@@ -53,12 +53,12 @@ const Login = () => {
       localStorage.setItem("user", JSON.stringify(response.data));
       console.log("Raw localStorage user:", localStorage.getItem("user"));
 
-      
+     
       
        if (role === "farmer") {
          navigate("/");
        } else if (role === "doctor") {
-         navigate("/docdashboard");
+         navigate("/doctordashboard");
        }  
 
       
@@ -72,7 +72,9 @@ const Login = () => {
                      "Login failed. Please try again.";
       alert(message);}
 
-      
+    
+
+
 
 
 

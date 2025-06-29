@@ -41,7 +41,11 @@ const SignUp = () => {
           formData // Changed from Values to formData
         );
         console.log(response.data);
-        navigate("/login");
+        if (formData.role === "doctor") {
+          navigate("/docdashboard");
+        } else {
+          navigate("/login");
+        }
       }
     } catch (error) {
       console.log(error);

@@ -5,7 +5,7 @@ const VeterinaryOfficer = require("../models/doctor");
 const appointment = require("../models/appointment");
 
 //  1. Register a New Veterinary Officer
-router.post("/doctor", async (req, res) => {
+router.post("/", async (req, res) => {
     try {
         const { name, email, password, phoneNumber, qualification, experience, specialization,  address , fees} = req.body;
 
