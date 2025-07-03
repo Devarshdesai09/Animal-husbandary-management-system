@@ -1,0 +1,234 @@
+/* Global Styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* Remove gradient if you want only the image */
+  /* background: linear-gradient(to right, #e0f7fa, #e1bee7); */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Blurred background image */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('/assets/cardiologist_17.jpg') center center/cover no-repeat;
+  filter: blur(10px);
+  z-index: -1;
+  opacity: 0.7;
+}
+
+/* Layout */
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+/* Form Card */
+.form-section-container {
+  flex: 1;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  backdrop-filter: blur(8px);
+  padding: 2rem;
+  animation: fadeInUp 0.6s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #333;
+}
+
+input,
+textarea {
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 0.4rem;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #673ab7;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(103, 58, 183, 0.1);
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+button {
+  background-color: #673ab7;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #512da8;
+}
+
+/* Progress Bar */
+.progress-container {
+  margin-bottom: 2rem;
+}
+
+.progress-bar-bg {
+  background: #ccc;
+  height: 6px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-bar-fill {
+  background: #673ab7;
+  height: 100%;
+  transition: width 0.4s ease-in-out;
+}
+
+.step-circles {
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-step {
+  text-align: center;
+  flex: 1;
+}
+
+.circle {
+  height: 28px;
+  width: 28px;
+  background: #ccc;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin: auto;
+  transition: background 0.3s;
+}
+
+.circle.active {
+  background: #673ab7;
+}
+
+.label {
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+/* Doctor Info */
+.selected-doctor-summary {
+  margin-bottom: 1.5rem;
+  background: #ede7f6;
+  padding: 1rem;
+  border-radius: 10px;
+  border-left: 5px solid #673ab7;
+}
+
+.selected-doctor-summary p {
+  margin: 4px 0;
+}
+
+/* Image Side */
+.image-side {
+  flex: 1;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-side img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1s ease-in;
+}
+
+/* Preview Confirmation */
+.preview {
+  background: #f3e5f5;
+  padding: 1rem;
+  border-radius: 10px;
+  line-height: 1.6;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .page-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 
 const doctor = new mongoose.Schema({
+
+     userId: { type: mongoose.Schema.Types.ObjectId,
+        ref: "BaseUser",
+        required: true },
+
     name:{
         type:String,
         required:true,
@@ -58,7 +63,12 @@ const doctor = new mongoose.Schema({
     //         ref: 'Appointment',
     //     },
     // ],
-},{timestamps: true});
+    appointments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Appoinment" }]
+    }, { timestamps: true });
+
+
+
+
 
 const Doctor = mongoose.model('Doctor', doctor);
 

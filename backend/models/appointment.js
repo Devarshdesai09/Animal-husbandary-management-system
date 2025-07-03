@@ -13,7 +13,7 @@ const AppointmentSchema = new mongoose.Schema({
     },
     doctor_id: { 
         type: mongoose.Schema.Types.ObjectId, 
-        ref: "Doctor", // Veterinary Doctor assigned 
+        ref: "Doctor", 
         // required: true 
     },
     animalname:{

@@ -38,11 +38,11 @@ const Login = () => {
        const response = await axios.post("http://localhost:8080/api/v1/sign-in",Values)
        
       const user = response.data.user || {};
+
        const { id, role, token ,email} = response.data;
       
        dispatch(authActions.login());
        dispatch(authActions.setUser({ id: user._id, role: user.role,  email : user.email }));
-       
       
       // store the data in the localsotreage 
       localStorage.setItem("id",response.data.id)
@@ -53,12 +53,13 @@ const Login = () => {
       localStorage.setItem("user", JSON.stringify(response.data));
       console.log("Raw localStorage user:", localStorage.getItem("user"));
 
-     
+
+
       
        if (role === "farmer") {
          navigate("/");
        } else if (role === "doctor") {
-         navigate("/doctordashboard");
+         navigate(`/doctordashboard`);
        }  
 
       
