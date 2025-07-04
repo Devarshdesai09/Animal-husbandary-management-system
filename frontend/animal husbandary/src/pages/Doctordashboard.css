@@ -1,0 +1,150 @@
+.dashboard-layout {
+  display: flex;
+  height: 100vh;
+  background: #e0f7fa;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-profile {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sidebar-profile .avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.sidebar-profile h3 {
+  margin: 10px 0 5px;
+}
+
+.sidebar-profile p {
+  font-size: 14px;
+  color: gray;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebar-links a {
+  text-decoration: none;
+  color: #00796b;
+  font-weight: bold;
+}
+
+.sidebar-links a:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+  background-color: #f9f9f9;
+  overflow-y: auto;
+}
+
+.appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.appointments-table th,
+.appointments-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+.appointments-table th {
+  background-color: #f0f0f0;
+  text-align: left;
+}
+
+
+/* Card layout for appointments */
+
+.main-content {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9fafb;
+  border-radius: 10px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.main-content h2 {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+.appointment-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.appointment-card {
+  background-color: #fefefe;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+}
+
+.appointment-card p {
+  font-size: 15px;
+  color: #374151;
+  margin: 6px 0;
+}
+
+.appointment-card strong {
+  color: #111827;
+}
+
+.action-buttons {
+  margin-top: 15px;
+}
+
+.btn-approve,
+.btn-reject {
+  padding: 8px 16px;
+  margin-right: 10px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-approve {
+  background-color: #10b981;
+  color: white;
+}
+
+.btn-approve:hover {
+  background-color: #059669;
+}
+
+.btn-reject {
+  background-color: #ef4444;
+  color: white;
+}
+
+.btn-reject:hover {
+  background-color: #dc2626;
+}

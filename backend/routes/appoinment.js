@@ -112,5 +112,28 @@ router.get("/appointment/history/:id", async (req, res) => {
   }
 });
 
+// update appointment status
+// Approve or reject appointment
+router.put("/update-status/:id", async (req, res) => {
+ 
+  try {
+     const { id } = req.params;
+     await appointment.findByIdAndUpdate(
+      id,
+      { status : req.body.status },
+      { new: true }
+
+    );
+
+   
+
+    res.json({ message: "Status updated", });
+  } catch (err) {
+    res.status(500).json({ message: "Server error", error: err.message });
+  }
+});
+
+
+
 
 module.exports = router;
