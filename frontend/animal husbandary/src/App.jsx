@@ -10,6 +10,9 @@ import Profile from "./pages/Profile";
 import Bookappointment from "./pages/Bookappointment";
 import Docdashboard from "./components/Docdashboard"
 import Doctordashboard from "./pages/Doctordashboard";
+import Medicinestore from "./pages/Medicinestore";
+import Footer from "./components/Footer";
+import Card from "./components/Card";
 const App = () => {
   const dispatch = useDispatch();
 
@@ -36,6 +39,9 @@ const App = () => {
         <Route path="/profile" element={<Profile/>}    />
         <Route path="/docdashboard" element={<Docdashboard />} />
         <Route path="/doctordashboard" element={<Doctordashboard />} />
+        <Route path="/store" element={<Medicinestore/>} />
+         <Route path="/footer" element={<Footer />} />
+          <Route path="/card" element={<Card />} />
       </Routes>
   
   );

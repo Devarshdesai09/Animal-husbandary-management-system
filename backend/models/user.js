@@ -35,7 +35,25 @@ const baseUserSchema = new mongoose.Schema({
         default : 'farmer', 
         required: true
     },
+
+     cart : [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Medicine'
+    }],
+
+    orders: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Order'
+    }],
+
+    favorites: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Medicine'
+    }],
+
 appointments: [{ type: mongoose.Schema.Types.ObjectId, ref: "appoinment" }]
+
+
 }, { timestamps: true });
 
 const BaseUser = mongoose.model('BaseUser', baseUserSchema);

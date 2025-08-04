@@ -12,12 +12,14 @@ const user = require('./routes/user')
 const Doctor = require('./routes/doctor')
 const Animal = require('./routes/animaltreat')
 const Appointment = require('./routes/appoinment')
+const Medicine = require('./routes/medicine')
 app.use(cors());
 app.use(express.json());
 app.use("/api/v1",user);
 app.use("/api/v1/doctor",Doctor);
 app.use("/api/v1",Animal);
 app.use("/api/v1",Appointment);
+app.use("/api/v1",Medicine);
 
 
 main().then(()=>{

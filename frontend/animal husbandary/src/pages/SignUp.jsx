@@ -55,7 +55,7 @@ const SignUp = () => {
   return (
     <div className="login-container">
       <div className="login-box">
-        <h2>Animal Husbandry Portal Sign Up</h2>
+        <h2>Fix-N-Meet SignUp Portal</h2>
         <form onSubmit={submit}>
           <div className="input-group">
             <label>First Name:</label>
