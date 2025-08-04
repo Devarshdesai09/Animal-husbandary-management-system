@@ -76,7 +76,9 @@ const Footer = () => {
             <FaFacebookF />
             <FaTwitter />
             <FaInstagram />
-            <FaLinkedin />
+            <a href="https://www.linkedin.com/in/devarsh-desai-a740b7273/">
+                <FaLinkedin  />
+            </a>
           </SocialIcons>
         </Section>
 

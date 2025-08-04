@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Medicinestore.css';
+import { Icon } from "@iconify/react";
+
 
 const Medicinestore = () => {
   const [medicines, setMedicines] = useState([]);
@@ -22,6 +24,7 @@ const Medicinestore = () => {
   return (
     <div className="medicine-container">
       <h2 className="medicine-title">🩺 Medicine Store</h2>
+      
 
       {medicines.length === 0 ? (
         <p style={{ textAlign: 'center' }}>No medicines found.</p>
