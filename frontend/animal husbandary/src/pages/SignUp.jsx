@@ -37,7 +37,7 @@ const SignUp = () => {
       } else {
         // Connect to the backend
         const response = await axios.post(
-          "http://localhost:8080/api/v1/sign-up",
+          "https://appointment-booking-xzd3.onrender.com/api/v1/sign-up",
           formData // Changed from Values to formData
         );
         console.log(response.data);

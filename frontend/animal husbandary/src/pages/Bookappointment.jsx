@@ -40,7 +40,7 @@ const Bookappointment = () => {
         user_id: userId,
         doctor_id: selectedDoctor._id,
       };
-      await axios.post("http://localhost:8080/api/v1/appointment", payload);
+      await axios.post("https://appointment-booking-xzd3.onrender.com/api/v1/appointment", payload);
       alert("Appointment booked successfully!");
       navigate("/");
     } catch (err) {

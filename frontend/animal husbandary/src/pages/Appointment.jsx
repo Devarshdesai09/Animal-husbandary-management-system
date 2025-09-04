@@ -16,7 +16,7 @@ const Appointment = () => {
   //  Search doctors by query
   const handleSearch = async () => {
     try {
-      const res = await axios.get(`http://localhost:8080/api/v1/doctor/search?query=${query}`);
+      const res = await axios.get(`https://appointment-booking-xzd3.onrender.com/api/v1/doctor/search?query=${query}`);
       setDoctors(res.data);
       setSelectedDoctor(null); // Reset selection
       setDoctorAppointments([]); // Reset appointments

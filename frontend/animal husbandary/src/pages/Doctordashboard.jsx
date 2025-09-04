@@ -22,14 +22,14 @@ const Doctordashboard = () => {
 
       // Get doctor details by user ID
       const doctorRes = await axios.get(
-        `http://localhost:8080/api/v1/doctor/get-doctor-by-user/${userId}`
+        `https://appointment-booking-xzd3.onrender.com/api/v1/doctor/get-doctor-by-user/${userId}`
       );
       const doctor = doctorRes.data;
       setDoctorId(doctor._id);
 
       // Get appointments for doctor
       const appointmentRes = await axios.get(
-        `http://localhost:8080/api/v1/appointment/doctor/${doctor._id}`
+        `https://appointment-booking-xzd3.onrender.com/api/v1/appointment/doctor/${doctor._id}`
       );
       setAptData(appointmentRes.data || []);
     } catch (error) {
@@ -42,7 +42,7 @@ const Doctordashboard = () => {
 
   const updateStatus = async (id, status) => {
     try {
-      await axios.put(`http://localhost:8080/api/v1/update-status/${id}`, {
+      await axios.put(`https://appointment-booking-xzd3.onrender.com/api/v1/update-status/${id}`, {
         status,
         
       });

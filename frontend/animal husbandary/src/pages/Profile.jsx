@@ -14,7 +14,7 @@ const Profile = () => {
     const fetchAppointments = async () => {
       try {
         const userId = localStorage.getItem("id");
-        const response = await axios.get(`http://localhost:8080/api/v1/appointment/history/${userId}`, {
+        const response = await axios.get(`https://appointment-booking-xzd3.onrender.com/api/v1/appointment/history/${userId}`, {
           headers: {
             authorization: `Bearer ${localStorage.getItem("token")}`
           }

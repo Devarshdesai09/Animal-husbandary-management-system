@@ -10,7 +10,7 @@ const Medicinestore = () => {
   useEffect(() => {
     const fetchMedicines = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/api/v1/getallmedicines");
+        const res = await axios.get("https://appointment-booking-xzd3.onrender.com/api/v1/getallmedicines");
         setMedicines(res.data);
       } catch (error) {
         console.error("Failed to fetch medicines:", error);
